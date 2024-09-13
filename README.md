@@ -22,8 +22,7 @@ To get started, make sure you have configured your GCP provider. You can use the
 ```hcl
 
 module "firewall" {
-  source        = "SyncArcs/firewall/google"
-  version       = "1.0.1"
+  source        ="git::https://github.com/SyncArcs/terraform-google-firewall.git?ref=v1.0.0"
   name          = "app"
   environment   = "test"
   network       = module.vpc.vpc_id
@@ -60,7 +59,8 @@ This project is licensed under the **MIT** License - see the [LICENSE](https://g
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | >= 3.50, < 5.11.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.85.0 |
+
 ## Modules
 
 | Name | Source | Version |
@@ -102,4 +102,3 @@ This project is licensed under the **MIT** License - see the [LICENSE](https://g
 | <a name="output_firewall_self_link"></a> [firewall\_self\_link](#output\_firewall\_self\_link) | The URI of the created resource. |
 | <a name="output_name"></a> [name](#output\_name) | an identifier for the resource with format |
 <!-- END_TF_DOCS -->
-
