@@ -59,7 +59,7 @@ This project is licensed under the **MIT** License - see the [LICENSE](https://g
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | >= 3.50, < 5.11.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.85.0 |
 
 ## Modules
 

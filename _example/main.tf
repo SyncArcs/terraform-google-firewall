@@ -1,7 +1,7 @@
 provider "google" {
-  project = "soy-smile-435017-c5"
+  project = "testing-gcp-sys"
   region  = "asia-northeast1"
-  zone    = "asia-northeast1-a"
+  zone    = "asia-northeasysst1-a"
 }
 
 #####==============================================================================
