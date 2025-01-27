@@ -19,3 +19,4 @@ output "firewall_self_links" {
   value       = [for rule in google_compute_firewall.rules : rule.self_link]
   description = "Self-links of the created firewall rules."
 }
+

@@ -18,8 +18,8 @@ variable "label_order" {
 
 variable "extra_tags" {
   type        = map(string)
+  description = "Additional tags to be applied"
   default     = {}
-  description = "Additional tags for the resource."
 }
 
 variable "repository" {
