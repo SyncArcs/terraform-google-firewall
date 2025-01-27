@@ -16,12 +16,6 @@ variable "label_order" {
   description = "Label order, e.g. sequence of application name and environment `name`,`environment`, 'attribute' [`webserver`,`qa`,`devops`,`public`,]."
 }
 
-variable "extra_tags" {
-  type        = map(string)
-  description = "Additional tags to be applied"
-  default     = {}
-}
-
 variable "repository" {
   type        = string
   default     = "https://github.com/SyncArcs/terraform-google-firewall"
