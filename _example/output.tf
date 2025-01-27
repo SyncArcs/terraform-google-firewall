@@ -1,19 +1,20 @@
+
 output "firewall_id" {
   value       = module.firewall.firewall_id
-  description = "Name of the resource. Provided by the client when the resource is created."
+  description = "IDs of the created firewall rules."
 }
 
-output "name" {
-  value       = module.firewall.name
-  description = "an identifier for the resource with format"
+output "firewall_names" {
+  value       = module.firewall.firewall_names
+  description = "Names of the created firewall rules."
 }
 
-output "firewall_creation_timestamp" {
-  value       = module.firewall.firewall_creation_timestamp
-  description = "Creation timestamp in RFC3339 text format."
+output "firewall_creation_timestamps" {
+  value       = module.firewall.firewall_creation_timestamps
+  description = "Creation timestamps of the created firewall rules."
 }
 
-output "firewall_self_link" {
-  value       = module.firewall.firewall_self_link
-  description = "The URI of the created resource."
+output "firewall_self_links" {
+  value       = module.firewall.firewall_self_links
+  description = "Self-links of the created firewall rules."
 }

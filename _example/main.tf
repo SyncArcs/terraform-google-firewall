@@ -12,6 +12,7 @@ module "vpc" {
   name                                      = "app"
   environment                               = "test"
   routing_mode                              = "REGIONAL"
+  mtu                                       = 1500
   network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL"
 }
 
@@ -19,16 +20,24 @@ module "vpc" {
 ##### Firewall module call.
 #####==============================================================================
 module "firewall" {
-  source        = "../"
-  name          = "app"
-  environment   = "test"
-  network       = module.vpc.vpc_id
-  priority      = 1000
-  source_ranges = ["0.0.0.0/0"]
-  allow = [
+  source      = "./../"
+  name        = "app"
+  environment = "test"
+  network     = module.vpc.vpc_id
+  ingress_rules = [
     {
-      protocol = "tcp"
-      ports    = ["22", "80"]
+      name          = "allow-tcp-http-ingress"
+      description   = "Allow TCP, HTTP ingress traffic"
+      disabled      = false
+      direction     = "INGRESS"
+      priority      = 1000
+      source_ranges = ["0.0.0.0/0"]
+      allow = [
+        {
+          protocol = "tcp"
+          ports    = ["22", "80"]
+        }
+      ]
     }
   ]
 }

@@ -26,13 +26,20 @@ module "firewall" {
   name          = "app"
   environment   = "test"
   network       = module.vpc.vpc_id
-  priority      = 1000
-  source_ranges = ["0.0.0.0/0"]
-
-  allow = [
+  ingress_rules = [
     {
-      protocol = "tcp"
-      ports    = ["22", "80"]
+      name          = "allow-tcp-http-ingress"
+      description   = "Allow TCP, HTTP ingress traffic"
+      disabled      = false
+      direction     = "INGRESS"
+      priority      = 1000
+      source_ranges = ["0.0.0.0/0"]
+      allow = [
+        {
+          protocol = "tcp"
+          ports    = ["22", "80"]
+        }
+      ]
     }
   ]
 }
