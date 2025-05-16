@@ -1,19 +1,21 @@
+
+# Outputs for Firewall Rules
 output "firewall_id" {
-  value       = join("", google_compute_firewall.default[*].id)
-  description = "Name of the resource. Provided by the client when the resource is created."
+  value       = [for rule in google_compute_firewall.rules : rule.id]
+  description = "IDs of the created firewall rules."
 }
 
-output "name" {
-  value       = join("", google_compute_firewall.default[*].name)
-  description = "an identifier for the resource with format"
+output "firewall_names" {
+  value       = [for rule in google_compute_firewall.rules : rule.name]
+  description = "Names of the created firewall rules."
 }
 
-output "firewall_creation_timestamp" {
-  value       = join("", google_compute_firewall.default[*].creation_timestamp)
-  description = "Creation timestamp in RFC3339 text format."
+output "firewall_creation_timestamps" {
+  value       = [for rule in google_compute_firewall.rules : rule.creation_timestamp]
+  description = "Creation timestamps of the created firewall rules."
 }
 
-output "firewall_self_link" {
-  value       = join("", google_compute_firewall.default[*].self_link)
-  description = "The URI of the created resource."
+output "firewall_self_links" {
+  value       = [for rule in google_compute_firewall.rules : rule.self_link]
+  description = "Self-links of the created firewall rules."
 }
